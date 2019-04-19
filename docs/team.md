@@ -6,11 +6,11 @@ title:  Team
 # {{ page.title }}
 
 
-## USER 1
-***UCI Net ID***: ucinetid1
+## Dennis Ong
+***UCI Net ID***: denniso
 
-## USER 2
-***UCI Net ID***: ucinetid2
+## Allen Fann
+***UCI Net ID***: afann1
 
-## USER 3
-***UCI Net ID***: ucinetid3
+## Ethan Nguyen
+***UCI Net ID***: ethanvn
