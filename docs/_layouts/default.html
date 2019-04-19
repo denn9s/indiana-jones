@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{{ site.title }}: {{ page.title }}</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async
+	    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <link rel="stylesheet" href="{{ 'css/custom.css' | relative_url }}">
+  </head>
+  <body>
+
+    {% assign current = page.url | downcase | split: '/' %}
+    {% assign statusClass = 'disabled' %}
+    {% assign proposalClass = 'disabled' %}
+    {% assign finalClass = 'disabled' %}
+    {% for page in site.html_pages %}
+      <!--h1>{{ page.url }}</h1-->
+      {% if page.url == '/proposal.html' %}
+          {% assign proposalClass = '' %}
+      {% endif %}
+      {% if page.url == '/status.html' %}
+          {% assign statusClass = '' %}
+      {% endif %}
+      {% if page.url == '/final.html' %}
+          {% assign finalClass = '' %}
+      {% endif %}
+    {% endfor %}
+    <!--h2>{% if current[1] == %} 5 {% endif %}</h2-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand" style="pointer-events:none;">{{ site.title }}</span>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="{% if current[1] == 'index.html' or current[1] == %} active {% endif %}"><a href="index.html">Home</a></li>
+            <li class="{{ proposalClass }}{% if current[1] == 'proposal.html' %} active {% endif %}"><a href="proposal.html">Proposal</a></li>
+            <li class="{{ statusClass }}{% if current[1] == 'status.html' %} active {% endif %}"><a href="status.html">Status</a></li>
+            <li class="{{ finalClass }}{% if current[1] == 'final.html' %} active {% endif %}"><a href="final.html">Final</a></li>
+            <li class="{% if current[1] == 'team.html' %} active {% endif %}"><a href="team.html">Team Details</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h2>
+        {{ site.title }}
+        <small>{{ site.subtitle }}</small>
+        </h2>
+      </div>
+
+
+        {{ content }}
+
+    </div><!-- /.container -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Website created as part of the <a href="https://canvas.eee.uci.edu/courses/15949">CS 175: Project in AI, Spring 2019</a> course.</p>
+      </div>
+    </footer>
+
+</body>
+</html>
+
