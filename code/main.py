@@ -37,12 +37,12 @@ def start_mission(agent_host, mission_xml):
 		mission_file = f.read()
 		mission = MalmoPython.MissionSpec(mission_file, True)
 		logging.info("successfully obtained mission")
-		
+
 	# set up camera POV and recording
 	mission.setViewpoint(0)
 	mission_record = MalmoPython.MissionRecordSpec()
-	
-	# attempt to start mission
+		
+	# attempt to start a mission:
 	num_tries = 3
 	for attempt in range(num_tries):
 		try:
@@ -55,22 +55,15 @@ def start_mission(agent_host, mission_xml):
 				exit(1)
 			else:
 				time.sleep(2)
-				
-	# update world state (keep a timer to exit out)
-	time_out_max = 50
-	time_out = 0
+	
+	# update world state
+	logging.info("waiting for mission to start")
 	world_state = agent_host.getWorldState()
 	while not world_state.has_mission_begun:
-		time_out += 1
-		if time_out % 10 == 0:
-			logging.info("waiting for mission to begin")
 		time.sleep(0.1)
-		if time_out >= time_out_max:
-			logging.error("could not update world state")
-			exit(1)
-	world_state = agent_host.getWorldState()
-	logging.info("successfully obtained world state")
-	
+		world_state = agent_host.getWorldState()
+	logging.info("successfully updated world state")
+		
 def set_world_observations(agent_host, ep_waiting):
 	world_state = agent_host.getWorldState()
 	if world_state.number_of_observations_since_last_state > 0:
@@ -85,7 +78,8 @@ def set_world_observations(agent_host, ep_waiting):
 			curr_pos[1] = int(ob[u'YPos'])
 		if "ZPos" in ob:
 			curr_pos[2] = int(ob[u'ZPos'])
-		logging.info("curr_pos: ", curr_pos)
+		
+		print("curr_pos: ", curr_pos)
 
 
 		
@@ -108,6 +102,5 @@ if __name__ == '__main__':
 			logging.info("mission in progress...")
 			set_world_observations(agent_host, True)
 			time.sleep(0.5)
-		time.sleep(1)
-	
+	time.sleep(1)
 	
