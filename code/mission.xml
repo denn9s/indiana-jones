@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<About>
+			<Summary>Avoid the arrows and get the treasure</Summary>
+		</About>
+
+		<ServerSection>
+			<ServerInitialConditions>
+				<Time>
+					<StartTime>6000</StartTime>
+					<AllowPassageOfTime>false</AllowPassageOfTime>
+				</Time>
+				<Weather>clear</Weather>
+				<AllowSpawning>false</AllowSpawning>
+			</ServerInitialConditions>
+			<ServerHandlers>
+				<FileWorldGenerator src="/home/allen/mc-dodge-bot-master/maps/test/" forceReset="true"/> 
+				<ServerQuitWhenAnyAgentFinishes />
+			</ServerHandlers>
+		</ServerSection>
+
+        <AgentSection mode="Survival">
+            <Name>Dodger</Name>
+            <AgentStart>
+                <Placement x="451.5" y="4" z="-317"/>
+                <Inventory/>
+            </AgentStart>
+            <AgentHandlers>
+                <ObservationFromNearbyEntities>
+                    <Range name="entities" xrange="40" yrange="40" zrange="40"/>
+                </ObservationFromNearbyEntities>
+				<ChatCommands/>
+				<VideoProducer want_depth="false">
+					<Width>960</Width>
+					<Height>640</Height>
+				</VideoProducer>
+				<ContinuousMovementCommands turnSpeedDegs="480"/>
+				<AbsoluteMovementCommands/>
+				<MissionQuitCommands/>
+				<ObservationFromFullStats/>
+            </AgentHandlers>
+        </AgentSection>
+</Mission>
