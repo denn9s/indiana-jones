@@ -22,12 +22,18 @@
         <AgentSection mode="Survival">
             <Name>Dodger</Name>
             <AgentStart>
-                <Placement x="451.5" y="4" z="-317"/>
+                <Placement x="451.5" y="4" z="-316.5"/>
                 <Inventory/>
             </AgentStart>
             <AgentHandlers>
+				<ObservationFromGrid>
+					<Grid name="view_left">
+						<min x="5" y="1" z="0"/>
+						<max x="5" y="1" z="10"/>
+					</Grid>
+                  </ObservationFromGrid>
                 <ObservationFromNearbyEntities>
-                    <Range name="entities" xrange="40" yrange="40" zrange="40"/>
+                    <Range name="entities" xrange="10" yrange="10" zrange="10"/>
                 </ObservationFromNearbyEntities>
 				<ChatCommands/>
 				<VideoProducer want_depth="false">
