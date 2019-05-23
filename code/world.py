@@ -102,23 +102,42 @@ def get_curr_pos(obs):
 	# get a dict of curent x-y-z positions
 	return {"x":obs[u'XPos'], "y":obs[u'YPos'], "z":obs[u'ZPos']}
 
+def get_curr_hp(obs):
+        # returns current hp of the agent
+        return obs["Life"]
+        
 def get_arrow_pos(obs):
 	# get a dict of arrow positions by their z-positions
 	arrows = {}
-	arrow_l, arrow_r = curr_pos["x"]+4.2, curr_pos["x"]-2.4
+	arrow_l, arrow_r = obs["XPos"]+4.2, obs["XPos"]-2.4
 	for entity in obs["entities"]:
 		if entity["name"] == "Arrow" and entity["motionX"] < -0.01 and \
 		   entity["x"] < arrow_l and entity["x"] > arrow_r:
 				arrows[int(entity["z"])] = entity
+	return arrows
 
 def get_world_observations(agent_host):
-	world_state = agent_host.getWorldState()
-	if world_state.number_of_observations_since_last_state > 0:
-		msg = world_state.observations[-1].text
-		obs = json.loads(msg)  
+	"""	get world observations from the agent's most recent world state
+		args:	malmo agent host	(created beforehand in an outer scope)
+		return: world observation	(dict of info:value)
+	"""
+	world_state = agent_host.peekWorldState()
+	while True:
+	
+		# valid world state: get observations
+		if world_state.number_of_observations_since_last_state > 0:
+			msg = world_state.observations[-1].text
+			obs = json.loads(msg)  
 
-		# validate entities exist
-		if not "entities" in obs:
-			logging.error("no entities in the world")
-			exit(1)
-		return obs
+			# check for any errors
+			for err in world_state.errors:
+				logging.error(err)
+			if "entities" not in obs:
+				logging.error("no entities in the world")
+				exit(1)
+			
+			return obs
+		
+		# invalid world state: get another one asap
+		else:
+			world_state = agent_host.getWorldState()

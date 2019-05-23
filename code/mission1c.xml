@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<About>
+			<Summary>Avoid the arrows and get the treasure</Summary>
+		</About>
+
+		<ServerSection>
+			<ServerInitialConditions>
+				<Time>
+					<StartTime>6000</StartTime>
+					<AllowPassageOfTime>false</AllowPassageOfTime>
+				</Time>
+				<Weather>clear</Weather>
+				<AllowSpawning>false</AllowSpawning>
+			</ServerInitialConditions>
+			<ServerHandlers>
+				<FileWorldGenerator src="C:\Users\Ethan Nguyen\Desktop\CS175\arrow1c\arrow1c/"/> 
+				<ServerQuitWhenAnyAgentFinishes />
+			</ServerHandlers>
+		</ServerSection>
+
+        <AgentSection mode="Survival">
+            <Name>Dodger</Name>
+            <AgentStart>
+                <Placement x="451.5" y="4" z="-316.5"/>
+                <Inventory/>
+            </AgentStart>
+            <AgentHandlers>
+				<DiscreteMovementCommands>
+                <ModifierList type="deny-list">
+                  <command>attack</command>
+                </ModifierList>
+            </DiscreteMovementCommands>
+				<ObservationFromGrid>
+					<Grid name="view_left">
+						<min x="6" y="1" z="0"/>
+						<max x="6" y="1" z="10"/>
+					</Grid>
+					<Grid name="view_ahead">
+						<min x="0" y="0" z="1"/>
+						<max x="0" y="0" z="1"/>
+					</Grid>
+				</ObservationFromGrid>
+				<RewardForTouchingBlockType>
+					<Block reward="100.0" type="trapped_chest" behaviour="onceOnly"/>
+				</RewardForTouchingBlockType>
+				<AgentQuitFromTouchingBlockType>
+					<Block type="trapped_chest" />
+				</AgentQuitFromTouchingBlockType>
+                <ObservationFromNearbyEntities>
+                    <Range name="entities" xrange="10" yrange="10" zrange="10"/>
+                </ObservationFromNearbyEntities>
+				<ChatCommands/>
+				<VideoProducer want_depth="false">
+					<Width>960</Width>
+					<Height>640</Height>
+				</VideoProducer>
+				<ContinuousMovementCommands/>
+				<AbsoluteMovementCommands/>
+				<MissionQuitCommands/>
+				<ObservationFromFullStats/>
+            </AgentHandlers>
+        </AgentSection>
+</Mission>
