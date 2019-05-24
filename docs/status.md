@@ -21,7 +21,12 @@ We decided that Q-learning was the best approach to developing our agent's movem
 ## Evaluation
 
 ### Quantitative Evaluation
+Our main criteria for the quantitative evalution of our bot is how far the bot got before he was hit by an arrow. However, due to the nature of our current one arrow implementation, this evaluation in our current state is not that useful as the bot either is hit by the arrow, or passes the arrow tile and retrieves the treasure. Instead we decided to look at whether the bot decided to "move 0" or wait in response to the arrow's placement through the use of q-learning with rewards, or if the bot was lucky and randomly passed the arrow tile. Our bot had gone through numerous iterations of different reward settings in order to determine what was the sweet spot for the best performance.
+Our group had also used a random runs where the bot randomly chooses to wait or walk to compare our results with the q-table. We wanted to see if the win rates of the random runs were similar to our q-table so judge if the optimal reward setting was applied or required adjusting. We created another scoring method that had the bot
+stop before the arrow and then moving based on the arrow position. This allowed us to see the win-rate in a controlled setting to limit other potential factors that may have affected the run, mainly being random chance. This "hard coded" run allowed us to eliminate the time it took to get to the treasure after clearing the arrow tile. 
 
+
+For example 
 ### Qualitative Evaluation
 The main method we can use to evaluate our agent's actions is by watching how it performs against the arrow over time. We should mainly be watching how the agent walks across the walkway, noting whether or not it is stopping/going randomly. Ideally, we would view a good result as non-random movement after a decent amount of episodes, while a bad result would be completely random movement (reaching the goal by pure luck).
 
