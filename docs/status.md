@@ -33,8 +33,10 @@ The main method we can use to evaluate our agent's actions is by watching how it
 
 
 ## Remaining Goals and Challenges
-Currently, our agent is constrained to a dodging a single arrow in an extremely short path. We would like for our agent to be able to dodge multiple arrows coming from dispensers at randomized positions. With that being said, we would like to have the agent's path to the goal be longer. We would like take our simplified version and up the scale of it by placing more dispensers around, and also placing the dispensers in random positions.   
+Currently, our agent is constrained to a dodging a single arrow in an extremely short path. We would like for our agent to be able to dodge multiple arrows coming from dispensers at randomized positions. With that being said, we would like to have the agent's path to the goal be longer. We would like take our simplified version and up the scale of it by placing more dispensers around, and also placing the dispensers in random positions. Our agent also at the moment can only take one arrow to be considered a fail. One of our goals is to allow the agent to get hit instead of restarting the mission, and incorporating that information into our rewards system.    
 
 Some challenges that we were facing are continuting to optimize our reward settings as the increase in winrate between our regular runs and random runs is moderate currently due to our one arrow setup, however once we incorporate mulitple dispensers, we would have to adjust the reward as it would be a more important factor in the success rate of our agent. An interesting challenge that may pop up is whether the agent can learn and consistently get to the goal in a reasonable amount of time, after a certain amount of dispensers are placed. The time it takes for consistent success would increase dramatically in relation to the amount of arrow dispensers placed. A possible solution to this problem is to either take away the random placements of the dispensers, provide the agent with previous run's information or decrease the amount of dispensers once the time it takes per iteration becomes unreasonable.
+
+ 
 
 ## Resources Used
