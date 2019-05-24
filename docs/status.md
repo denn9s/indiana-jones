@@ -32,6 +32,7 @@ The main method we can use to evaluate our agent's actions is by watching how it
 
 
 ## Remaining Goals and Challenges
-Currently, our agent is constrained to a dodging a single arrow in an extremely short path. We would like for our agent to be able to dodge multiple arrows coming from dispensers at randomized positions. With that being said, we would like to have the agent's path to the goal be longer.
+Currently, our agent is constrained to a dodging a single arrow in an extremely short path. We would like for our agent to be able to dodge multiple arrows coming from dispensers at randomized positions. With that being said, we would like to have the agent's path to the goal be longer. 
+Some challenges that we are currently facing are continuting to optimize our reward settings as the increase in winrate between our regular runs and random runs is moderate currently due to our one arrow setup, however once we incorporate mulitple dispensers, we would have to adjust the reward according as it would be a more important factor in the success rate of our agent.
 
 ## Resources Used
