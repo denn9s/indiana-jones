@@ -2,7 +2,7 @@
 The following is a test run of our current AI using factor configuration -10/-10/0.75/3.00 (explained below).
 It prints a stripped down version of the q-table (explained further below), and a list of winrates for 500 episodes in increments of 50 to the terminal.
 
-![](http://img.youtube.com/vi/lxnTYDQHSRo/0.jpg)](http://www.youtube.com/watch?v=lxnTYDQHSRo)
+[![](http://img.youtube.com/vi/lxnTYDQHSRo/0.jpg)](http://www.youtube.com/watch?v=lxnTYDQHSRo)
 
 ## Summary
 Our overall goal was to have our agent be able to dodge various enemy projectiles, such as skeleton arrows or blaze fireballs in order to reach a chest. However, we wanted to modify our environment to be slightly more controlled, so we decided to have our agent dodge arrows fired from dispensers. We wanted our progress to have a solid, simple foundation, so we designed our agent to dodge a single incoming arrow from a dispenser. As of now, our agent is designed to solely move forwards and backwards in order to dodge incoming arrows from the sides. We incorporated reinforcement learning by utilizing q-tables, Q-learning, to allow the agent to dodge the projectiles and reach the goal.
