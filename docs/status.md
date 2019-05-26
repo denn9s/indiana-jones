@@ -1,11 +1,8 @@
----
-layout: default
-title:  Status
----
+## Video
+The following is a test run of our current AI using factor configuration -10/-10/0.75/3.00 (explained below).
+It prints a stripped down version of the q-table (explained further below), and a list of winrates for 500 episodes in increments of 50 to the terminal.
 
-# {{ page.title }}
-
-## Video Summary
+![](http://img.youtube.com/vi/lxnTYDQHSRo/0.jpg)](http://www.youtube.com/watch?v=lxnTYDQHSRo)
 
 ## Summary
 Our overall goal was to have our agent be able to dodge various enemy projectiles, such as skeleton arrows or blaze fireballs in order to reach a chest. However, we wanted to modify our environment to be slightly more controlled, so we decided to have our agent dodge arrows fired from dispensers. We wanted our progress to have a solid, simple foundation, so we designed our agent to dodge a single incoming arrow from a dispenser. As of now, our agent is designed to solely move forwards and backwards in order to dodge incoming arrows from the sides. We incorporated reinforcement learning by utilizing q-tables, Q-learning, to allow the agent to dodge the projectiles and reach the goal.
@@ -76,7 +73,5 @@ The main method we can use to evaluate our agent's actions is by watching how it
 Currently, our agent is constrained to a dodging a single arrow in an extremely short path. We would like for our agent to be able to dodge multiple arrows coming from dispensers at randomized positions. With that being said, we would like to have the agent's path to the goal be longer. We would like take our simplified version and up the scale of it by placing more dispensers around, and also placing the dispensers in random positions. Our agent also at the moment can only take one arrow to be considered a fail. One of our goals is to allow the agent to get hit instead of restarting the mission, and incorporating that information into our rewards system.    
 
 Some challenges that we were facing are continuting to optimize our reward settings as the increase in winrate between our regular runs and random runs is moderate currently due to our one arrow setup, however once we incorporate mulitple dispensers, we would have to adjust the reward as it would be a more important factor in the success rate of our agent. An interesting challenge that may pop up is whether the agent can learn and consistently get to the goal in a reasonable amount of time, after a certain amount of dispensers are placed. The time it takes for consistent success would increase dramatically in relation to the amount of arrow dispensers placed. A possible solution to this problem is to either take away the random placements of the dispensers, provide the agent with previous run's information or decrease the amount of dispensers once the time it takes per iteration becomes unreasonable.
-
- 
 
 ## Resources Used
