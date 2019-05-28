@@ -45,9 +45,9 @@ The q-values are shown in terms of move/wait ratios. A larger left number means 
 | -313 | 49/50 | 44/55 | 49/50 | 42/57 | 20/79 | 57/42 | 37/62 | 50/49 | 40/59 | 50/49    |   |   |
 | -314 | 50/49 | 49/50 | 51/48 | 51/48 | 52/47 | 54/45 | 52/47 | 50/49 | 49/50 | 47/52    |   |   |
 
-Afterwardsm we tested a "base run" with an epsilon of 0.2 (20% chance to perform a random action) for 500 episodes. The win-rate results were already promising, but lacked substantial growth.
+Afterwards, we tested a "base run" with an epsilon of 0.2 (20% chance to perform a random action) for 500 episodes. The win-rate results were already promising, but lacked substantial growth.
 
-![](base_wr.png)
+![](base_run_wr.png)
 
 The stripped down q-table of the base run showed much more wild values. Although some values were well in line with the results of the hard-coded run, a lot of other values did not match up, possibly due to a small of number of times the agent encounters these particular states.
 
