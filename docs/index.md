@@ -5,7 +5,7 @@ title:  Home
 
 # Indiana Jones AI
 
-Source code: https://github.com/denn9s/mc-dodge-bot
+Source code: https://github.com/denn9s/indiana-jones
 
 ![](indiana-jones-treasure.jpg)
 
