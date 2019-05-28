@@ -8,7 +8,7 @@ subtitle: 'CS 175: Project in AI (in Minecraft)'
 #########################
 # more settings
 
-# markdown: kramdown
+markdown: kramdown
 
 exclude:
 - README.md
