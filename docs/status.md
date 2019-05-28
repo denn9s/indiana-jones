@@ -1,3 +1,8 @@
+---
+layout: default
+title:  Status
+---
+
 ## Video
 The following is a test run of our current AI using factor configuration -10/-10/0.75/3.00 (explained below).
 It prints a stripped down version of the q-table (explained further below), and a list of winrates for 500 episodes in increments of 50 to the terminal.
