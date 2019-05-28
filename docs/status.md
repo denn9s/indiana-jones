@@ -19,6 +19,19 @@ Our main approach to reaching our goal is to have our agent bounded by the sides
 
 We decided that Q-learning was the best approach to developing our agent's movements. As a whole, it seemed that Q-learning would be the best approach due to the fact that we could break down our environment into easily-defined states and rewards. Restraining our agent to a straight pathway also helped in reducing the size of the Q-table.
 
+### Q-Learning
+Q-learning is a reinforcement learning algorithm that is based on creating all possible states that can happen to the agent, with the agent choosing the state that has the best reward. All of the states are stored in a Q-table, a lookup table that has expected rewards for each possible state. Generally, a larger amount of episodes/iterations should result in a more accurately rewarded Q-table. To begin, the Q-table is initialized to a value chosen by the algorithm's programmer; each iteration will update the values at each cell as the agent trains.
+
+### States
+Our states currently consist of three main components: arrow positions, number of possible arrows, and the amount of tiles that the agent can traverse.
+
+$$
+\text{Number of arrow positions = 10} \\
+\text{Number of possible arrows = 1} \\
+\text{Number of tiles on walkway = 8} \\
+\text{Total Q-table size = } numArrowPos * numArrows * numTiles = 10 * 1 * 8 = 80
+$$
+
 ## Evaluation
 
 ### Quantitative Evaluation
