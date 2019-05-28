@@ -13,3 +13,5 @@ markdown: kramdown
 exclude:
 - README.md
 - LICENSE.md
+
+theme: jekyll-theme-midnight
