@@ -18,6 +18,8 @@ title: Final Report
 
 ### Quantitative Evaluation
 
+![](Indiana-JonesWR.png)
+
 ### Qualitative Evaluation
 
 ## References:
