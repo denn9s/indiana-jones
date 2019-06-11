@@ -74,6 +74,7 @@ Whether the arrow dispensers were adjacent did not affect the success rate of ou
 
 
 ### Qualitative Evaluation
+The main method we used in evaluating our agent has not changed as we looked at how it performs over time, taking note of any significant increase or decrease of win rate. We did not want randomness to be a factor in our agent's performance as such we used iterations of 500 trials to control any random factors. However, one factor that could have skewed the win rate is how fast the agent moves. We chose to use discrete movement. Our program allows for the agent to either wait or move, but the agent determines its next action many times per second and as such moves extremely fast. We chose to use discrete movement instead of continuous because of how precise discrete movement was and we needed our agent to move exactly one tile at a time, as anything less than that would potentially allow the arrows to hit the agent if the agent was slightly ahead of behind the middle of the tile. However, a drawback to this is that the agent essentially teleports from tile to tile, moving much faster than it possibly could if continuous movement was used. 
 
 ### Overall Goals Reached
 dodge multiple arrows coming from dispensers at randomized positions/one of our goals is to allow the agent to get hit instead of restarting the mission, and incorporating that information into our rewards system
