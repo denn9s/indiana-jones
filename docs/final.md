@@ -23,8 +23,11 @@ baseline and proposed approach
 
 ### Q-Learning
 Explain exactly what it is and how it works (epsilon,alpha,etc)
+
 advantages and disadvantages
+
 include pseudocode and equations
+
 
 ### States
 
@@ -34,11 +37,17 @@ include pseudocode and equations
 
 ![](Indiana-JonesWR.png)
 y = 5 [0.647, 0.703, 0.722, 0.716, 0.741, 0.728, 0.732, 0.726, 0.729, 0.73] 3 arrows not adjacent
+
 y = 17 [0.647, 0.743, 0.775, 0.761, 0.789, 0.781, 0.781, 0.778, 0.778, 0.778] 2 arrows not adjacent
+
 y = 29 [0.667, 0.703, 0.735, 0.741, 0.733, 0.738, 0.738, 0.733, 0.734, 0.722] 3 arrows adjacent
+
 y = 41 [0.843, 0.891, 0.901, 0.91, 0.904, 0.887, 0.889, 0.888, 0.887, 0.892] 1 arrow
+
 y = 53 [0.549, 0.624, 0.636, 0.652, 0.685, 0.691, 0.689, 0.678, 0.687, 0.692] 4 arrows all adjcent
+
 y = 65 [0.588, 0.574, 0.609, 0.632, 0.637, 0.631, 0.618, 0.628, 0.63, 0.622] 4 arrows all adjacent
+
 
 ### Qualitative Evaluation
 
