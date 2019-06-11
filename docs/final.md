@@ -34,12 +34,14 @@ include pseudocode and equations
 ## Evaluation:
 
 ### Quantitative Evaluation
+Our main criteria for our evaluation is the success rate of our agent retrieving the treasure without getting hit by a single arrow. Our agent is successful if they retrieve the treasure and failure is when the agent is hit by an arrow. We collected data by implementing Q-Learning and running the agent over 500 trials per run, and recording the success rate in blocks of 50 trials. This was done to showcase our implementation of Q-Learning by showing how the winrate steadily increases until it hits a ceiling. 
 
 | ![](Indiana-JonesWR.png) |
 |:--:|
 | *@@@@@@@@@UPDATE THIS AT THE END@@@@@@@@@@@ *Figure X: Agent Win Rates* |
 
 The above image shows the overall winrates of our agent across different environments. The raw data is shown here. The difference between the average winrate of the first 50 runs and the last 50 runs are also below. 
+
 y = 5 [0.647, 0.703, 0.722, 0.716, 0.741, 0.728, 0.732, 0.726, 0.729, 0.73] 3 Arrows not Adjacent, Difference = 0.083, 8.3%
 
 y = 17 [0.647, 0.743, 0.775, 0.761, 0.789, 0.781, 0.781, 0.778, 0.778, 0.778] 2 Arrows not Adjacent, Difference = 0.131, 13.1%
@@ -50,9 +52,22 @@ y = 41 [0.843, 0.891, 0.901, 0.91, 0.904, 0.887, 0.889, 0.888, 0.887, 0.892] 1 A
 
 y = 53 [0.549, 0.624, 0.636, 0.652, 0.685, 0.691, 0.689, 0.678, 0.687, 0.692] 4 Arrows Adjacent, Difference = 0.143, 14.3%
 
-To reiterate, the y is used to determine which environment was used in the data collection. Each element of the list are the numbers used in the graph. Factors that we hypothesized to affect the overall winrate of each iteration were amount of arrow dispensers, location of arrow dispensers, and whether they were adjacent or not.
+
+
+To reiterate, the y is used to determine which environment was used in the data collection. Each element of the list are the numbers used in the graph. Factors that we hypothesized to affect the overall winrate of each iteration were amount of arrow dispensers, location of arrow dispensers, and whether the arrow dispensers were adjacent to each other or not.
 
 #### Amount of Arrow Dispensers
+The amount of arrow dispensers do affect the success rate of our agent. As shown in our data above, our 1 Arrow run ended with an 89.2% win rate while the others ended with a 77.8%, 73% and 69.2% win rate (2 Arrow, 3 Arrow, 4 Arrow runs respectively). This shows that the amount of arrow dispensers do ultimately affect the success rate because of the added difficulty in the agent having to analyze and dodge numerous arrows at the same time. 
+
+#### Location of Arrow Dispensers
+The location of arrow dispensers did not affect the success rate of our agent. This is seen in our two 4 Arrow Adjacent environments (y = 53, y = 65), with the relevant data for y = 65 being shown below.
+
+y = 65 [0.582, 0.574, 0.609, 0.632, 0.637, 0.651, 0.658, 0.658, 0.66, 0.686]
+
+The raw data for these two environments had shown similar results as the only change between the two maps were where the 4 adjacent dispensers were placed.  Due to this, the location of the arrow dispensers did not show any significant change for our agent. 
+
+#### Adjacency 
+Whether the arrow dispensers were adjacent did not affect the success rate of our agent. As shown in our data for y = 5 and y = 29, adjacency did not matter in if the agent can dodge the arrows more consistently. This may be due to the agent being able to choose its next actions extremely fast and moving past all arrows in an instance.   
 
 
 
