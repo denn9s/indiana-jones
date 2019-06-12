@@ -40,15 +40,46 @@ Q-learning seemed like the most appropriate approach because we could break out 
 
 Q-learning is a type of reinforcement learning algorithm that stores all possible states that can happen to the agent. With all these possible states, the agent chooses the state that has the highest reward. The idea of Q-learning is that the agent keeps on attempting the reach the goal, with each iteration being called an *episode*. Then, depending on the result of the episode, the agent updates its Q-table with new reward values for each possible state.
 
-TO-DO: Explain exactly what it is and how it works (epsilon,alpha,etc)
-
-TO-DO: advantages and disadvantages
-
-TO-DO: include pseudocode and equations
-
 ### Q-Learning Pseudocode
 
+* * *
+
+| ![](qlearningpseudocode.png) |
+|:--:| 
+| *Figure 3: Q-Learning Pseudocode (derived from UNSW's Reinforcement Learning page)* |
+
+* * *
+
+This is the primary pseudocode for how a Q-learning algorithm chooses its best action (*Figure 3*). Simplified, in the form of steps:
+
+1. Initialize Q-table
+2. Observe current state
+3. Choose action based on implemented policy (i.e. soft, greedy, etc.)
+4. Take action, observe the reward and newly created state
+5. Update Q-value in Q-table with new reward, along with new maximum possible rewards for following state (*formula in Figure 4*)
+6. Set state to new state
+7. Repeat process until terminal state reached
+
+* * *
+
+| ![](qfunction.png) |
+|:--:| 
+| *Figure 4: Q-Learning Update Function (derived from FreeCodeCamp's Introduction to Reinforcement Learning)* |
+
+* * *
+
 ### States
+
+Our states currently consist of three main components: arrow positions, number of possible arrows, and the amount of tiles that the agent can traverse.
+
+$$
+\text{Number of arrow positions = 10} \\
+\text{Number of possible arrows = 4, 3, 2, 1} \\
+\text{Number of tiles on walkway = 8} \\
+\text{Total Q-table size = } numArrowPos * numArrows * numTiles = 10 * 4, 3, 2, 1 * 8 = 320, 240, 160, 80
+$$
+
+The Q-table size, for different amount of arrows, would vary due to the larger amount of possible states from all the different arrow positions, which is why there are multiple values for the resulting size. Respectively, the Q-table sizes are evaluated for 4 possible arrows, 3 possible arrows, 2 possible arrows, and a single possible arrow firing towards the walkway.
 
 ## Evaluation:
 
@@ -59,7 +90,7 @@ Our main criteria for our evaluation is the success rate of our agent retrieving
 
 | ![](Indiana-JonesWR.png) |
 |:--:|
-| *@@@@@@@@@UPDATE THIS AT THE END@@@@@@@@@@@ *Figure X: Agent Win Rates* |\
+| *Figure 5: Agent Win Rates after 500 Episodes* |
 
 * * *
 
@@ -99,3 +130,6 @@ The main method we used in evaluating our agent has not changed as we looked at 
 dodge multiple arrows coming from dispensers at randomized positions/one of our goals is to allow the agent to get hit instead of restarting the mission, and incorporating that information into our rewards system
 
 ## References:
+General Q-Learning Information: https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/
+
+Q-Learning Pseudocode and Procedure: https://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html
