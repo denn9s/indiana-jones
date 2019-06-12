@@ -10,24 +10,43 @@ title: Final Report
 
 This overall goal of this project was to have our agent be able to traverse through a walkway to reach a treasure chest at the end. Along the way, however, there will be randomly placed dispensers that shoot arrows perpendicular to the walkway. Our agent, Indiana Jones, should use reinforcement learning in order to learn how to dodge these arrows to reach the treasure.
 
-Our agent will have a walkway that is 10 units long, with the treasure chest (goal) being at the end of the walkway. On the left of the agent, there will be randomly placed dispensers that fire at different intervals. These will be placed 6 units away from the walkway. There will be multiple variations of dispenser positions, as shown in the diagram below. We will have, at minimum, one dispenser, and a maximum of four dispensers. Although the agent *may* be able to randomly move through the walkway with one dispenser, the hardest challenges will be the three staggered dispensers and four adjacent dispensers.
+* * *
 
-| ![](finalreportoverview.png) |
+| ![](screenshotoverview.png) |
 |:--:| 
-| *Figure 1: Environment Overview* |
+| *Figure 1: In-Game Overview* |
+
+* * *
 
 Because of the difficulty of traversing through multiple arrows being fired, we needed a reinforcement learning algorithm in order to teach our agent when to move and when to stop. If, instead, we used a hard-coded method of avoiding the arrows, there would be the issue of the agent requiring very specific dispenser timings to cross, which would not be ideal. For example, we could design the agent to run across the walkway when all dispensers fire at once, but that would take a significant amount of waiting. To counteract this, we decided the best course of action would be a Q-learning algorithm, a reinforcement learning algorithm that integrates Q-tables.
 
 ## Approaches:
-baseline and proposed approach
+
+Compared to our status update, we have changed our environment with a couple major changes. The first major change was the addition of more than one arrow dispenser, while the second major change was the addition of multiple arrow dispenser configurations. Aside from the arrow dispenser changes, the walkway, start points, and end points remained unchanged.
+
+Just as before, our agent will have a walkway that is 10 units long, with the treasure chest (goal) being at the end of the walkway. On the left of the agent, there will be randomly placed dispensers that fire at different intervals. These will be placed 6 units away from the walkway. There will be multiple variations of dispenser positions, as shown in the diagram below (*Figure 2*). We will have, at minimum, one dispenser, and a maximum of four dispensers. Although the agent *may* be able to randomly move through the walkway with one dispenser, the hardest challenges will be the three staggered dispensers and four adjacent dispensers. As stated before, we believe that the best course of action was to have our agent determine its actions by accessing a Q-table, called Q-learning.
+
+Q-learning seemed like the most appropriate approach because we could break out environment into easily-defined states and rewards. Restraining our agent to a straight pathway also helped in reducing the size of our generated Q-table.
+
+* * *
+
+| ![](finalreportoverview.png) |
+|:--:| 
+| *Figure 2: Environment Overview* |
+
+* * *
 
 ### Q-Learning
-Explain exactly what it is and how it works (epsilon,alpha,etc)
 
-advantages and disadvantages
+Q-learning is a type of reinforcement learning algorithm that stores all possible states that can happen to the agent. With all these possible states, the agent chooses the state that has the highest reward. The idea of Q-learning is that the agent keeps on attempting the reach the goal, with each iteration being called an *episode*. Then, depending on the result of the episode, the agent updates its Q-table with new reward values for each possible state.
 
-include pseudocode and equations
+TO-DO: Explain exactly what it is and how it works (epsilon,alpha,etc)
 
+TO-DO: advantages and disadvantages
+
+TO-DO: include pseudocode and equations
+
+### Q-Learning Pseudocode
 
 ### States
 
@@ -36,9 +55,13 @@ include pseudocode and equations
 ### Quantitative Evaluation
 Our main criteria for our evaluation is the success rate of our agent retrieving the treasure without getting hit by a single arrow. Our agent is successful if they retrieve the treasure and failure is when the agent is hit by an arrow. We collected data by implementing Q-Learning and running the agent over 500 trials per run, and recording the success rate in blocks of 50 trials. This was done to showcase our implementation of Q-Learning by showing how the winrate steadily increases until it hits a ceiling. 
 
+* * * 
+
 | ![](Indiana-JonesWR.png) |
 |:--:|
-| *@@@@@@@@@UPDATE THIS AT THE END@@@@@@@@@@@ *Figure X: Agent Win Rates* |
+| *@@@@@@@@@UPDATE THIS AT THE END@@@@@@@@@@@ *Figure X: Agent Win Rates* |\
+
+* * *
 
 The above image shows the overall winrates of our agent across different environments. The raw data is shown here. The difference between the average winrate of the first 50 runs and the last 50 runs are also below. 
 
@@ -68,10 +91,6 @@ The raw data for these two environments had shown similar results as the only ch
 
 #### Adjacency 
 Whether the arrow dispensers were adjacent did not affect the success rate of our agent. As shown in our data for y = 5 and y = 29, adjacency did not matter in if the agent can dodge the arrows more consistently. This may be due to the agent being able to choose its next actions extremely fast and moving past all arrows in an instance.   
-
-
-
-
 
 ### Qualitative Evaluation
 The main method we used in evaluating our agent has not changed as we looked at how it performs over time, taking note of any significant increase or decrease of win rate. We did not want randomness to be a factor in our agent's performance as such we used iterations of 500 trials to control any random factors. However, one factor that could have skewed the win rate is how fast the agent moves. We chose to use discrete movement. Our program allows for the agent to either wait or move, but the agent determines its next action many times per second and as such moves extremely fast. We chose to use discrete movement instead of continuous because of how precise discrete movement was and we needed our agent to move exactly one tile at a time, as anything less than that would potentially allow the arrows to hit the agent if the agent was slightly ahead of behind the middle of the tile. However, a drawback to this is that the agent essentially teleports from tile to tile, moving much faster than it possibly could if continuous movement was used. 
