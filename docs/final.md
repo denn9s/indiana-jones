@@ -82,8 +82,9 @@ To reiterate, the y is used to determine which environment was used in the data 
 #### Amount of Arrow Dispensers
 The amount of arrow dispensers do affect the success rate of our agent. As shown in our data above, our 1 Arrow run ended with an 89.2% win rate while the others ended with a 77.8%, 73% and 69.2% win rate (2 Arrow, 3 Arrow, 4 Arrow runs respectively). This shows that the amount of arrow dispensers do ultimately affect the success rate because of the added difficulty in the agent having to analyze and dodge numerous arrows at the same time. 
 
-An interesting data we found was that the ceiling for a 1 arrow environment was around 90%. This is due to how our epsilon (chance of randomly choosing an action) was set to .20 and because there is only 1 arrow, there would be a (.20 * .50 = .10)  chance of the bot choosing an action that would cause a fail, because of this we would there to be a ceiling of 1.0 - .1 = .90 for a 1 arrow run,  
-similarly 
+An interesting data we found was that the ceiling win rate for a 1 arrow environment was around 90%. This is due to how our epsilon (chance of randomly choosing an action) was set to .20 and because there is only 1 arrow, there would be a (.20 * .50 = .10)  chance of the bot choosing an action that would cause a fail, because of this we know there to be a ceiling of 1.0 - .1 = .90 for a 1 arrow run,  
+similarly we can find the ceiling win rate for other runs that have more than 1 arrow by our epsilon value. Our data shows every block average after the inital 50 runs hovers around this ceiling for 1 arrow. 
+
 #### Location of Arrow Dispensers
 The location of arrow dispensers did not affect the success rate of our agent. This is seen in our two 4 Arrow Adjacent environments (y = 53, y = 65), with the relevant data for y = 65 being shown below.
 
