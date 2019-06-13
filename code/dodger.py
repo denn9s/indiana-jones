@@ -13,7 +13,7 @@ from collections import deque		# states/actions/rewards history
 # AI class
 # ==============================================================================
 class Dodger(object):
-	def __init__(self, agent_host, alpha=0.3, gamma=1, n=1):
+	def __init__(self, agent_host, alpha=0.4, gamma=.95, n=1):
 		self.agent_host = agent_host	# init in main
 		self.alpha = alpha				# learning rate
 		self.gamma = gamma				# value decay rate

@@ -79,8 +79,7 @@ def regular_run():
 		wr_table[wr_i] = win_rate
 		if rep > 0 and rep % 50 == 0:
 			wr_i += 1
-			num_runs = 0
-			num_wins = 0
+			
 		
 		# damaged or completion: soft refresh the world
 		logging.info("end mission " + str(num_runs) + ": " + str(total_reward))
