@@ -6,6 +6,8 @@ title: Final Report
 
 ## Video:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WKm6pnX_Jzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Project Summary:
 
 This overall goal of this project was to have our agent be able to traverse through a walkway to reach a treasure chest at the end. Along the way, however, there will be randomly placed dispensers that shoot arrows perpendicular to the walkway. Our agent, Indiana Jones, should use reinforcement learning in order to learn how to dodge these arrows to reach the treasure.
@@ -24,7 +26,7 @@ Because of the difficulty of traversing through multiple arrows being fired, we 
 
 Compared to our status update, we have changed our environment with a couple major changes. The first major change was the addition of more than one arrow dispenser, while the second major change was the addition of multiple arrow dispenser configurations. Aside from the arrow dispenser changes, the walkway, start points, and end points remained unchanged.
 
-Just as before, our agent will have a walkway that is 10 units long, with the treasure chest (goal) being at the end of the walkway. On the left of the agent, there will be randomly placed dispensers that fire at different intervals. These will be placed 6 units away from the walkway. There will be multiple variations of dispenser positions, as shown in the diagram below (*Figure 2*). We will have, at minimum, one dispenser, and a maximum of four dispensers. Although the agent *may* be able to randomly move through the walkway with one dispenser, the hardest challenges will be the three staggered dispensers and four adjacent dispensers. As stated before, we believe that the best course of action was to have our agent determine its actions by accessing a Q-table, called Q-learning.
+Just as before, our agent will have a walkway that is 10 units long, with the treasure chest (goal) being at the end of the walkway. On the left of the agent, there will be randomly placed dispensers that fire at different intervals. These will be placed 6 units away from the walkway. There will be multiple variations of dispenser positions, as shown in the diagram below (*Figure 2*). We will have, at minimum, one dispenser, and a maximum of four dispensers. It is important to note the multiple stages are built atop one another; their corresponding y-values are the height of the spawn coordinates for the agent. Although the agent *may* be able to randomly move through the walkway with one dispenser, the hardest challenges will be the three staggered dispensers and four adjacent dispensers. As stated before, we believe that the best course of action was to have our agent determine its actions by accessing a Q-table, called Q-learning.
 
 Q-learning seemed like the most appropriate approach because we could break out environment into easily-defined states and rewards. Restraining our agent to a straight pathway also helped in reducing the size of our generated Q-table.
 
