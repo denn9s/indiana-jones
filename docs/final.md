@@ -145,7 +145,7 @@ Epsilon is the chance of taking a random action for our agent. The only action i
 #### Action Sleep Time (Cooldown Time Between Actions)
 The action sleep time in our algorithm is used as the period of time between each action the agent uses. This is important as to allow the agent to poll its observations properly and allow for a quicker testing period.
 
-| ![] (rand_run_wr.png) |
+| ![](rand_run_wr.png) |
 |:--:|
 | *Figure 9: Agent Win Rates after 500 Episodes* |
 
