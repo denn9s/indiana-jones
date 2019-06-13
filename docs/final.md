@@ -144,13 +144,21 @@ The alpha parameter in our algorithm is the learning rate, and is defined as how
 
 * * *
 
-In our graph we show the different winrates of different values of alpha. The only parameter changed was alpha and as shown in this graph, alpha = .4 showed the strongest result. Alpha = .65 showed a much more volatile run as the algorithm prioritized the new value more than the old value and therefore resulted in unstable results. Alpha = .2 resulted in small increases and decreases. This is due to the learning rate being too small and changes over time took longer. Alpha = .4 shows a steady increase and ultimately results in the highest win rate across all 3 values.
+In our graph we show the different winrates of different values of alpha. The only parameter changed was alpha and as shown in this graph, alpha = .4 showed the strongest result. Alpha = .65 showed a much more volatile run as the algorithm prioritized the new value more than the old value and therefore resulted in unstable results. Alpha = .2 resulted in small increases and decreases. This is due to the learning rate being too small and changes over time took longer. Alpha = .4 shows a steady increase and ultimately resulted in the highest win rate across all 3 values.
 
 #### Gamma (Value Decay Rate)
 The gamma parameter in our algorithm is the discount factor. It is used as a ratio for balancing immediate and future reward. We use this discount in our algorithm to offset the future reward. 
 
 #### Epsilon (Chance of Taking a Random Action)
 Epsilon is the chance of taking a random action for our agent. The only action is agent can take is to move 0, which is do nothing, or move 1, which is to advance a tile. It is used to allow the agent to explore and find new states that would otherwised be missed, it is used to get out of the local maximum. 
+
+* * *
+
+| ![](EpsilonWR.png) |
+|:--:|
+| *Figure 8: Epsilon Win Rates after 500 Episodes* |
+
+* * *
 
 #### Action Sleep Time (Cooldown Time Between Actions)
 The action sleep time in our algorithm is used as the period of time between each action the agent uses. This is important as to allow the agent to poll its observations properly and allow for a quicker testing period. We chose to use a random run instead of our regular run to show how the cooldown period can affect the algorithm itself and how it collects and performs actions. 
