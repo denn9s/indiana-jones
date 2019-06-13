@@ -115,8 +115,6 @@ To reiterate, the y is used to determine which environment was used in the data 
 #### Amount of Arrow Dispensers
 The amount of arrow dispensers do affect the success rate of our agent. As shown in our data above, our 1 Arrow run ended with an 89.2% win rate while the others ended with a 77.8%, 73% and 69.2% win rate (2 Arrow, 3 Arrow, 4 Arrow runs respectively). This shows that the amount of arrow dispensers do ultimately affect the success rate because of the added difficulty in the agent having to analyze and dodge numerous arrows at the same time. 
 
-An interesting data we found was that the ceiling win rate for a 1 arrow environment was around 90%. This is due to how our epsilon (chance of randomly choosing an action) was set to .20 and because there is only 1 arrow, there would be a (.20 * .50 = .10)  chance of the bot choosing an action that would cause a fail, because of this we know there to be a ceiling of 1.0 - .1 = .90 for a 1 arrow run,  
-similarly we can find the ceiling win rate for other runs that have more than 1 arrow by our epsilon value. Our data shows every block average after the inital 50 runs hovers around this ceiling for 1 arrow. 
 
 #### Location of Arrow Dispensers
 The location of arrow dispensers did not affect the success rate of our agent. This is seen in our two 4 Arrow Adjacent environments (y = 53, y = 65), with the relevant data for y = 65 being shown below.
@@ -144,7 +142,7 @@ The alpha parameter in our algorithm is the learning rate, and is defined as how
 
 * * *
 
-In our graph we show the different winrates of different values of alpha. The only parameter changed was alpha and as shown in this graph, alpha = .4 showed the strongest result. Alpha = .65 showed a much more volatile run as the algorithm prioritized the new value more than the old value and therefore resulted in unstable results. Alpha = .2 resulted in small increases and decreases. This is due to the learning rate being too small and changes over time took longer. Alpha = .4 shows a steady increase and ultimately resulted in the highest win rate across all 3 values.
+In our graph we show the different win rates of different values of alpha. The only parameter changed was alpha and as shown in this graph, alpha = .4 showed the strongest result. Alpha = .65 showed a much more volatile run as the algorithm prioritized the new value more than the old value and therefore resulted in unstable results. Alpha = .2 resulted in small increases and decreases. This is due to the learning rate being too small and changes over time took longer. Alpha = .4 shows a steady increase and ultimately resulted in the highest win rate across all 3 values.
 
 #### Gamma (Value Decay Rate)
 The gamma parameter in our algorithm is the discount factor. It is used as a ratio for balancing immediate and future reward. We use this discount in our algorithm to offset the future reward. 
@@ -159,6 +157,8 @@ Epsilon is the chance of taking a random action for our agent. The only action i
 | *Figure 8: Epsilon Win Rates after 500 Episodes* |
 
 * * *
+
+In our graph we show the different win rates of different values of epsilon. With epsilon = 0.5 we see the initial winrate and every win rate average after wards stay stuck around .66. This is due to how there is too much of a chance to randomly choose an action and results in a stable graph that just hovers around the random percent chance. Epsilon = .1 shows similar results to .2 but is able to be stuck in a local maximum. However, in our program being stuck in a local maximum would be difficult and lowering the epsilon to any value lower than .2 would have similar results. We decided to use .2 due to this. 
 
 #### Action Sleep Time (Cooldown Time Between Actions)
 The action sleep time in our algorithm is used as the period of time between each action the agent uses. This is important as to allow the agent to poll its observations properly and allow for a quicker testing period. We chose to use a random run instead of our regular run to show how the cooldown period can affect the algorithm itself and how it collects and performs actions. 
