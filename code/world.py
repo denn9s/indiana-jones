@@ -236,8 +236,7 @@ def soft_refresh(agent_host, dodger):
 	
 	# teleport to a new start_pos
 	possible_y = [5, 17, 29, 41, 53, 65]
-	y = random.choice(possible_y)
-	y = 29
+	y = possible_y[0] #random.choice(possible_y)
 	x,z = dodger.start_pos["x"], dodger.start_pos["z"]
 	xyz = str(x) + " " + str(y) + " " + str(z)
 	agent_host.sendCommand("tp " + xyz)
@@ -251,7 +250,7 @@ def soft_refresh(agent_host, dodger):
 	# refill dispensers
 	dispensers = get_dispenser_pos(agent_host, obs, start_pos)
 	refill_dispensers(agent_host, dispensers)
-	#time.sleep(2)
+	time.sleep(2)
 	logging.info("successfully soft refreshed world")
 
 def refresh(agent_host, dodger):
@@ -261,14 +260,6 @@ def refresh(agent_host, dodger):
 	"""	
 	# kill mobs
 	agent_host.sendCommand("chat /kill @e[type=!minecraft:player]")
-	
-	possible_y = [5, 17, 29, 41, 53, 65]
-	y = random.choice(possible_y)
-	y = 41
-	x,z = 451.5, -316.5
-	xyz = str(x) + " " + str(y) + " " + str(z)
-	agent_host.sendCommand("tp " + xyz)
-	time.sleep(1)
 	
 	# get initial observations
 	obs = get_observations(agent_host)

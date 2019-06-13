@@ -56,7 +56,7 @@ def regular_run():
 		os.system("clear")
 		
 		# print q_table and win-rate
-		dodger.print_1arrow_q_table(moveable_blocks, possible_arrow_x_pos)
+		# dodger.print_1arrow_q_table(moveable_blocks, possible_arrow_x_pos)
 		logging.info("win-rate in " + str(num_runs) + ": " + str(win_rate))
 		print(wr_table)
 
@@ -79,6 +79,8 @@ def regular_run():
 		wr_table[wr_i] = win_rate
 		if rep > 0 and rep % 50 == 0:
 			wr_i += 1
+			num_runs = 0
+			num_wins = 0
 		
 		# damaged or completion: soft refresh the world
 		logging.info("end mission " + str(num_runs) + ": " + str(total_reward))

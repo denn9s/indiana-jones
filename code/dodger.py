@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # MODULES
 # ==============================================================================
 import MalmoPython					# Malmo
@@ -13,12 +13,12 @@ from collections import deque		# states/actions/rewards history
 # AI class
 # ==============================================================================
 class Dodger(object):
-	def __init__(self, agent_host, alpha=0.5, gamma=0.7, n=1):
+	def __init__(self, agent_host, alpha=0.3, gamma=1, n=1):
 		self.agent_host = agent_host	# init in main
 		self.alpha = alpha				# learning rate
 		self.gamma = gamma				# value decay rate
 		self.n = n						# number of back steps to update
-		self.epsilon = 0.2				# chance of taking a random action
+		self.epsilon = 0.2			# chance of taking a random action
 		self.q_table = {}				
 		self.start_pos = None			# init in world.refresh(...)
 		self.dispenser_pos = None		# init in world.refresh(...)
