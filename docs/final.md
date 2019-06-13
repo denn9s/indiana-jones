@@ -6,8 +6,6 @@ title: Final Report
 
 ## Video:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WKm6pnX_Jzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Project Summary:
 
 This overall goal of this project was to have our agent be able to traverse through a walkway to reach a treasure chest at the end. Along the way, however, there will be randomly placed dispensers that shoot arrows perpendicular to the walkway. Our agent, Indiana Jones, should use reinforcement learning in order to learn how to dodge these arrows to reach the treasure.
@@ -26,7 +24,7 @@ Because of the difficulty of traversing through multiple arrows being fired, we 
 
 Compared to our status update, we have changed our environment with a couple major changes. The first major change was the addition of more than one arrow dispenser, while the second major change was the addition of multiple arrow dispenser configurations. Aside from the arrow dispenser changes, the walkway, start points, and end points remained unchanged.
 
-Just as before, our agent will have a walkway that is 10 units long, with the treasure chest (goal) being at the end of the walkway. On the left of the agent, there will be randomly placed dispensers that fire at different intervals. These will be placed 6 units away from the walkway. There will be multiple variations of dispenser positions, as shown in the diagram below (*Figure 2*). We will have, at minimum, one dispenser, and a maximum of four dispensers. It is important to note the multiple stages are built atop one another; their corresponding y-values are the height of the spawn coordinates for the agent. Although the agent *may* be able to randomly move through the walkway with one dispenser, the hardest challenges will be the three staggered dispensers and four adjacent dispensers. As stated before, we believe that the best course of action was to have our agent determine its actions by accessing a Q-table, called Q-learning.
+Just as before, our agent will have a walkway that is 10 units long, with the treasure chest (goal) being at the end of the walkway. On the left of the agent, there will be randomly placed dispensers that fire at different intervals. These will be placed 6 units away from the walkway. There will be multiple variations of dispenser positions, as shown in the diagram below (*Figure 2*). We will have, at minimum, one dispenser, and a maximum of four dispensers. Although the agent *may* be able to randomly move through the walkway with one dispenser, the hardest challenges will be the three staggered dispensers and four adjacent dispensers. As stated before, we believe that the best course of action was to have our agent determine its actions by accessing a Q-table, called Q-learning.
 
 Q-learning seemed like the most appropriate approach because we could break out environment into easily-defined states and rewards. Restraining our agent to a straight pathway also helped in reducing the size of our generated Q-table.
 
@@ -131,17 +129,28 @@ Whether the arrow dispensers were adjacent did not affect the success rate of ou
 ### Quantitative Evaluation of Algorithm
 Our main evaluation of our Q-table algorithm is the win rate average of our programs last 50 episodes.  
 For our Q-table algorithm we observed that the best values for our program's main criteria of win rate are  
-alpha = 0.3, gamma = 1.0, backtracks = 1 , epsilon = 0.2 , and action sleep time = 0.05.
+alpha = 0.4, gamma = .95, epsilon = 0.2 , and action sleep time = 0.05.
 
 #### Alpha (Learning Rate)
+The alpha parameter in our algorithm is the learning rate, and is defined as how much the new value is accepted against the old value. It is the ratio of of the difference between the old and new values, which is then added to our previous q-value. 
+
+
 
 #### Gamma (Value Decay Rate)
-
-#### Backtracks (Numbers of Back Steps to Update)
+The gamma parameter in our algorithm is the discount factor. It is used as a ratio for balancing immediate and future reward. We use this discount in our algorithm to offset the future reward. 
 
 #### Epsilon (Chance of Taking a Random Action)
+Epsilon is the chance of taking a random action for our agent. The only action is agent can take is to move 0, which is do nothing, or move 1, which is to advance a tile. It is used to allow the agent to explore and find new states that would otherwised be missed, it is used to get out of the local maximum. 
 
 #### Action Sleep Time (Cooldown Time Between Actions)
+The action sleep time in our algorithm is used as the period of time between each action the agent uses. This is important as to allow the agent to poll its observations properly and allow for a quicker testing period.
+
+| ![] (rand_run_wr.png) |
+|:--:|
+| *Figure 9: Agent Win Rates after 500 Episodes* |
+
+We tested the action sleep time for 0.25 seconds and 0.05 and discovered that 0.05 is the optimal value. A value less than 0.05 proved to cause an increase in when the agent was able to successfully reach the goal by pure chance.  
+
 ### Qualitative Evaluation
 The main method we used in evaluating our agent has not changed as we looked at how it performs over time, taking note of any significant increase or decrease of win rate. We did not want randomness to be a factor in our agent's performance as such we used iterations of 500 episodes to control any random factors. However, one factor that could have skewed the win rate is how fast the agent moves. We chose to use discrete movement. Our program allows for the agent to either wait or move, but the agent determines its next action many times per second and as such moves extremely fast. We chose to use discrete movement instead of continuous because of how precise discrete movement was and we needed our agent to move exactly one tile at a time, as anything less than that would potentially allow the arrows to hit the agent if the agent was slightly ahead or behind the center of a tile. However, a drawback to discrete movement is that the agent essentially teleports from tile to tile, moving much faster than it possibly could if continuous movement was used. Therefore, time ultimately was not a suitable metric for our program as the agent moved too fast overall and could allow randomness to enter into our data as the agent's time to reach the goal may be dependent on the processing power of the computer. 
 
@@ -153,3 +162,5 @@ We achieved our first goal as we implemented multple arrow dispensers that incre
 General Q-Learning Information: https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/
 
 Q-Learning Pseudocode and Procedure: https://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html
+
+Learning Rates for Q-Learning: http://www.jmlr.org/papers/volume5/evendar03a/evendar03a.pdf 
