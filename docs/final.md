@@ -74,9 +74,13 @@ Our states currently consist of three main components: arrow positions, number o
 
 $$
 \text{Number of arrow positions = 10} \\
+
 \text{Number of possible arrows = 4, 3, 2, 1} \\
+
 \text{Number of tiles on walkway = 8} \\
+
 \text{Total Q-table size = } numArrowPos * numArrows * numTiles = 10 * 4, 3, 2, 1 * 8 = 320, 240, 160, 80
+
 $$
 
 The Q-table size, for different amount of arrows, would vary due to the larger amount of possible states from all the different arrow positions, which is why there are multiple values for the resulting size. Respectively, the Q-table sizes are evaluated for 4 possible arrows, 3 possible arrows, 2 possible arrows, and a single possible arrow firing towards the walkway.
