@@ -154,7 +154,7 @@ Epsilon is the chance of taking a random action for our agent. The only action i
 
 * * *
 
-| ![](EpsilonWR.png) |
+| ![](Epsilon2WR.png) |
 |:--:|
 | *Figure 8: Epsilon Win Rates after 500 Episodes* |
 
