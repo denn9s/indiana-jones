@@ -131,7 +131,7 @@ Our main evaluation of our Q-table algorithm is the win rate average of our prog
 For our Q-table algorithm we observed that the best values for our program's main criteria of win rate are  
 alpha = 0.4, gamma = .95, epsilon = 0.2 , and action sleep time = 0.05. In all of our graphs we used 3 arrows not adjacent environment, with only one parameter being changed at a time. 
 
-#### Alpha (Learning Rate)
+### Alpha (Learning Rate)
 The alpha parameter in our algorithm is the learning rate, and is defined as how much the new value is accepted against the old value. It is the ratio of of the difference between the old and new values, which is then added to our previous q-value. The first 300 episodes are generally unstable and due to that we decided to use the last 200 episodes to determine what our optimal alpha value is.
 
 * * *
@@ -144,7 +144,7 @@ The alpha parameter in our algorithm is the learning rate, and is defined as how
 
 In our graph we show the different win rates of different values of alpha. The only parameter changed was alpha and as shown in this graph, alpha = .4 showed the strongest result. Alpha = .65 showed a much more volatile run as the algorithm prioritized the new value more than the old value and therefore resulted in unstable results. Alpha = .2 resulted in small increases and decreases. This is due to the learning rate being too small and changes over time took longer. Alpha = .4 shows a steady increase and ultimately resulted in the highest win rate across all 3 values.
 
-#### Gamma (Value Decay Rate)
+### Gamma (Value Decay Rate)
 The gamma parameter in our algorithm is the discount factor. It is used as a ratio for balancing immediate and future reward. We use this discount in our algorithm to offset the future reward. Gamma is used to enforce and dampen the reward's effect on the agents action. Like alpha, we mainly use the last 200 episodes as our criteria as the first 300 are too unstable to have accurate results.
 
 * * *
@@ -158,7 +158,7 @@ The gamma parameter in our algorithm is the discount factor. It is used as a rat
 In our graph we can see the results of varying gamma values. For gamma = .8 we can see that our agent is stuck at around .70 as the program is valuing the future results more than the present. Due to this, the program is stuck at .7 and does go higher. For gamma = .95 the results are similar except the program is able to reach to .73 consistently. Having any gamma value over .95 has similar results such as our gamma = .99. The reason we chose to use .95 is to not have the future value completely overwhelm the immediate rewards.
 
 
-#### Epsilon (Chance of Taking a Random Action)
+### Epsilon (Chance of Taking a Random Action)
 Epsilon is the chance of taking a random action for our agent. The only action is agent can take is to move 0, which is do nothing, or move 1, which is to advance a tile. It is used to allow the agent to explore and find new states that would otherwised be missed, it is used to get out of the local maximum. 
 
 * * *
@@ -171,7 +171,7 @@ Epsilon is the chance of taking a random action for our agent. The only action i
 
 In our graph we show the different win rates of different values of epsilon. With epsilon = 0.5 we see the initial winrate and every win rate average after wards stay stuck around .66. This is due to how there is too much of a chance to randomly choose an action and results in a stable graph that just hovers around the random percent chance. Epsilon = .1 shows similar results to .2 but is able to be stuck in a local maximum. However, in our program being stuck in a local maximum would be difficult and lowering the epsilon to any value lower than .2 would have similar results. We decided to use .2 due to this. 
 
-#### Action Sleep Time (Cooldown Time Between Actions)
+### Action Sleep Time (Cooldown Time Between Actions)
 The action sleep time in our algorithm is used as the period of time between each action the agent uses. This is important as to allow the agent to poll its observations properly and allow for a quicker testing period. We chose to use a random run instead of our regular run to show how the cooldown period can affect the algorithm itself and how it collects and performs actions. 
 * * *
 | ![](rand_run_wr.png) |
