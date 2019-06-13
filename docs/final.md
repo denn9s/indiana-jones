@@ -192,4 +192,6 @@ General Q-Learning Information: https://www.freecodecamp.org/news/an-introductio
 
 Q-Learning Pseudocode and Procedure: https://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html
 
-Learning Rates for Q-Learning: http://www.jmlr.org/papers/volume5/evendar03a/evendar03a.pdf 
+Learning and Discount Rates for Q-Learning: http://www.jmlr.org/papers/volume5/evendar03a/evendar03a.pdf 
+
+Q-Learning Implementation Information: https://learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
