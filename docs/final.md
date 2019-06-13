@@ -126,6 +126,20 @@ The raw data for these two environments had shown similar results as the only ch
 #### Adjacency 
 Whether the arrow dispensers were adjacent did not affect the success rate of our agent. As shown in our data for y = 5 and y = 29, adjacency did not matter in if the agent can dodge the arrows more consistently. This may be due to the agent being able to choose its next actions extremely fast and moving past all arrows in an instance.   
 
+### Quantitative Evaluation of Algorithm
+Our main evaluation of our Q-table algorithm is the win rate average of our programs last 50 episodes.  
+For our Q-table algorithm we observed that the best values for our program's main criteria of win rate are  
+alpha = 0.3, gamma = 1.0, backtracks = 1 , epsilon = 0.2 , and action sleep time = 0.05.
+
+#### Alpha (Learning Rate)
+
+#### Gamma (Value Decay Rate)
+
+#### Backtracks (Numbers of Back Steps to Update)
+
+#### Epsilon (Chance of Taking a Random Action)
+
+#### Action Sleep Time (Cooldown Time Between Actions)
 ### Qualitative Evaluation
 The main method we used in evaluating our agent has not changed as we looked at how it performs over time, taking note of any significant increase or decrease of win rate. We did not want randomness to be a factor in our agent's performance as such we used iterations of 500 episodes to control any random factors. However, one factor that could have skewed the win rate is how fast the agent moves. We chose to use discrete movement. Our program allows for the agent to either wait or move, but the agent determines its next action many times per second and as such moves extremely fast. We chose to use discrete movement instead of continuous because of how precise discrete movement was and we needed our agent to move exactly one tile at a time, as anything less than that would potentially allow the arrows to hit the agent if the agent was slightly ahead or behind the center of a tile. However, a drawback to discrete movement is that the agent essentially teleports from tile to tile, moving much faster than it possibly could if continuous movement was used. Therefore, time ultimately was not a suitable metric for our program as the agent moved too fast overall and could allow randomness to enter into our data as the agent's time to reach the goal may be dependent on the processing power of the computer. 
 
